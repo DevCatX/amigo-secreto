@@ -11,26 +11,26 @@ let listaAmigos = [];
 // funciones
 function agregarAmigo(){
   let addAmigo = txtAmigo.value;
-  let nuevoLi = document.createElement("li");
-  if (addAmigo.trim() === ""){
+  let nuevoLi = document.createElement("li"); // se crea unn elemento li para la lista html
+  if (addAmigo.trim() === ""){ // trim() elimina espacios en blanco al inicio y final de la cadena para validar que el campo no este vacio
     alert("Debe ingresar un nombre valido");
     txtAmigo.value = "";
   }
   else{
-    nuevoLi.innerHTML = addAmigo;
-    listaAmigos.push(addAmigo);
+    nuevoLi.innerHTML = addAmigo; // al elemento li se le asigna el valor obtenido del campo de texto html
+    listaAmigos.push(addAmigo); // el valor obtenido del campo de texto se añade a la lista
     txtAmigo.value = "";
-    ulListaAmigos.appendChild(nuevoLi);
+    ulListaAmigos.appendChild(nuevoLi); // a la lista html se le añade el elenemto li como elemeto hijo
     console.log(listaAmigos);
   }
 }
 btnAgregarAmigo.addEventListener("click", agregarAmigo);
 
 function sortearAmigo(){
-  let sorteo = numeroRandom(listaAmigos.length);
+  let sorteo = numeroRandom(listaAmigos.length); // se ramdomisa un numero entre 1 y el largo de la lista
   let nuevoLi = document.createElement("li");
   ulListaAmigos.style.display = "none"; // oculta la vista de la lista con los nombres
-  nuevoLi.innerHTML = `Tu amigo secreto es: ${listaAmigos[sorteo - 1]}`;
+  nuevoLi.innerHTML = `Tu amigo secreto es: ${listaAmigos[sorteo - 1]}`; // se imprime el valor del numero ramdom como indice de la lista, -1 ya que los indices arrancan desde 0 y no desde 1
   ulResultado.appendChild(nuevoLi);
 }
 btnSortearAmigo.addEventListener("click", sortearAmigo);
