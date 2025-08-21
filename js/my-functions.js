@@ -17,3 +17,7 @@ export function limpiarCajaTexto(elemento){
 export function numeroRandom(numero){
   return Math.floor(Math.random()*numero)+1
 }
+
+export function recargaPagina(tiempo){
+  return setTimeout(() => {location.reload();}, tiempo);
+}

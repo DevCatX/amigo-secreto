@@ -1,4 +1,4 @@
-import {capturaHtml, salidaTexto, limpiarCajaTexto, numeroRandom} from "./my-functions.js";
+import {capturaHtml, recargaPagina, numeroRandom} from "./my-functions.js";
 
 // importacion de etiquetas html por Id
 let txtAmigo = capturaHtml("txtAmigo");
@@ -38,6 +38,7 @@ function sortearAmigo(){
     nuevoLi.innerHTML = `Tu amigo secreto es: ${listaAmigos[sorteo - 1]}`; // se imprime el valor del numero ramdom como indice de la lista, -1 ya que los indices arrancan desde 0 y no desde 1
     ulResultado.appendChild(nuevoLi);
     btnSortearAmigo.setAttribute("disabled", "");// cuando se juega el sorteo el boton se bloquea
+    recargaPagina(10000);// recarga la pagina luego de 10 segundos de haber sorteado el amigo secreto
   }
 }
 btnSortearAmigo.addEventListener("click", sortearAmigo);
